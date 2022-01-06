@@ -1,18 +1,30 @@
 package com.projeto1.cursomc.resources;
 
-import javax.xml.xpath.XPathEvaluationResult.XPathResultType;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.projeto1.cursomc.domain.Categorias;
 
 @RestController
 @RequestMapping(value="/categorias")
 public class CategoriaResource {
 
 	@RequestMapping(method = RequestMethod.GET)
-	public String listar() {
+	public List<Categorias> listar() {
 		
-		return "REST está funcionando";
+		
+		Categorias cat1 = new Categorias(1, "");
+		Categorias cat2 = new Categorias(2, "Escritório");
+		
+		List<Categorias> lista = new ArrayList<>(); 
+		
+		lista.add(cat1);
+		lista.add(cat2);
+		
+		return lista;
 	}
 }
